@@ -1,0 +1,5 @@
+NamespaceId: "b3bda3c4-9f64-4777-8c22-ebd5b08eaa45"
+DataId: "grpc"
+Group: "DEFAULT_GROUP"
+Host: "119.3.125.7"
+Port: 8848

@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package server;
+option go_package="./server";
+
+message ProductRequest {
+   string name =1;
+}
+
+message ProductList {
+  string  Name=1;
+  string  Description=2;
+  float   Price=3;
+  int64   Stock =4;
+}
+
+message Response {
+  repeated ProductList product_list = 1;
+}
+
+message ProductAddToRequest{
+  string  Name=1;
+  float Price=2;
+  int64  Stock=3;
+  string  Category=4;
+  string Description=5;
+}
+
+message ProductAddToResponse{
+  int64 Code =1;
+  string Msg=2;
+}
+
+message RegisterRequest {
+  string Username = 10;
+  string Password = 20;
+  string Mobile = 30;
+}
+
+message RegisterResponse {
+  string Data = 10;
+}
+
+service Server {
+  rpc Product(ProductRequest) returns(Response);
+  rpc ProductAdd(ProductAddToRequest) returns(ProductAddToResponse);
+  rpc Register(RegisterRequest) returns(RegisterResponse);
+}
